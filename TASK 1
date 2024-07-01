@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int askQuestion(char *question, char *option1, char *option2, char *option3, char correctAnswer) {
+    char answer;
+    printf("%s\n", question);
+    printf("A. %s\n", option1);
+    printf("B. %s\n", option2);
+    printf("C. %s\n", option3);
+    printf("Your answer (A/B/C): ");
+    scanf(" %c", &answer);  
+
+    if (answer == correctAnswer) {
+        printf("Correct!\n");
+        return 1; 
+    } else {
+        printf("Incorrect. The correct answer is %c.\n", correctAnswer);
+        return 0; 
+    }
+}
+
+int main() {
+    int score = 0;
+    char answer;
+
+    
+    score += askQuestion("What is the capital of France?", "Paris", "London", "Berlin", 'A');
+    score += askQuestion("Which planet is closest to the sun?", "Earth", "Mars", "Mercury", 'C');
+    score += askQuestion("Who wrote 'Hamlet'?", "William Shakespeare", "Charles Dickens", "Jane Austen", 'A');
+
+    
+    printf("Quiz completed! You scored %d out of 3.\n", score);
+
+    return 0;
+}
